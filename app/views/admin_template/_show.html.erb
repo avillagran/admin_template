@@ -1,0 +1,30 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "Lista", url_for(:controller => config[:controller], :action => "index") %></li>
+      <li><%= link_to "Crear", url_for(:controller => config[:controller], :action => "new") %></li>
+      <li class="active"><%= link_to "Ver", url_for(:controller => config[:controller], :action => "show", :id => @item)%></li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="inner">
+				<% config[:fields].each do |i| %>
+				<p>
+					<b><%= i[1] %>:</b>
+					<%= @item[i[0]] %>
+				</p>
+				<% end %>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "Editar") + " Editar",
+										url_for(:controller => config[:controller], :action => "edit", :id => @item),
+										:class => "button" %>
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "Eliminar") + " Eliminar",
+										url_for(:controller => config[:controller], :action => "destroy", :id => @item),
+										:method => "delete",
+										:class => "button", :confirm => "¿Estás seguro de querer eliminar?" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => config[:sidebar]) -%>

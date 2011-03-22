@@ -1,0 +1,23 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Lista", url_for(:controller => config[:controller], :action => "index") %></li>
+      <li><%= link_to "Crear", url_for(:controller => config[:controller], :action => "new") %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Todos <%= config[:masculino] ? "los" : "las"%> <%= config[:name].capitalize %></h2>
+    <div class="inner">
+
+		<%= raw draw_table(:fields => config[:fields], :values => @items, :controller => config[:controller])%>
+
+    <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => config[:sidebar]) -%>
