@@ -76,8 +76,8 @@ module AdminTemplateHelpers
     else
       config[:show_links]   = true
     end
-
-    str = '
+    str = ""
+    str += '
     <table class="table">
       <tr>
 '
