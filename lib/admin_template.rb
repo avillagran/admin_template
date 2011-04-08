@@ -104,7 +104,7 @@ module AdminTemplateHelpers
 
         if config.has_key?(:actions)
           config[:actions].each do |a|
-            str += '<a href="#" data-uniq="'+config[:unique_id].to_s+'" data-type="'+i.class.to_s+'" data-id="' + i.id.to_s + '"' +(a.has_key?(:class) && !a[:class].blank? ? a[:class] : '')+  '>' + a[:label] + '</a> '
+            str += '<a href="#" data-uniq="'+config[:unique_id].to_s+'" data-type="'+i.class.to_s+'" data-id="' + i.to_param + '"' +(a.has_key?(:class) && !a[:class].blank? ? a[:class] : '')+  '>' + a[:label] + '</a> '
           end
         else
           str += '<a href="' + url_for(:controller => config[:controller], :action => "show", :id => i) + '">Mostrar</a> | '
@@ -129,6 +129,8 @@ module AdminTemplateHelpers
     config[:show_created_at] = false	                        unless config.has_key?(:show_created_at)
     config[:created_at_array] = [['created_at', 'Creado']]    unless config.has_key?(:created_at_array)
     config[:show_id] = false					                        unless config.has_key?(:show_id)
+    config[:show_title] = true                                unless config.has_key?(:show_title)
+    config[:extra_params] = nil                               unless config.has_key?(:extra_params)
 
     created_at_array = config[:created_at_array]
 
