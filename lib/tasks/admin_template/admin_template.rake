@@ -11,7 +11,7 @@ namespace :admin_template do
     desc 'Install required javascripts for admin_template'
     task :javascripts do
       puts 'Copying files...'
-      project_dir = Rails.root.to_s + '/public/stylesheets/'
+      project_dir = Rails.root.to_s + '/public/javascripts/'
       scripts = File.join(File.dirname(__FILE__), '../../..', '/javascripts/admin_template')
       FileUtils.cp_r(scripts, project_dir)
       puts 'files copied successfully.'
