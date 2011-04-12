@@ -7,12 +7,18 @@
     </ul>
   </div>
   <div class="content">
+		<% if config.has_key?(:name) %>
+		<h2><%= config[:name] %></h2>
+		<% end %>
     <div class="inner">
 				<% config[:fields].each do |i| %>
 				<p>
 					<b><%= i[1] %>:</b>
 					<%= @item[i[0]] %>
 				</p>
+				<% end %>
+				<% if config.has_key?(:extra) %>
+					<%= config[:extra] %>
 				<% end %>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "Editar") + " Editar",
