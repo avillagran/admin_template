@@ -16,6 +16,19 @@ module AdminTemplateHelpers
     render :partial => 'admin_template/index', :locals => {:config => config}
   end
 
+  def at_index_nested(config = {})
+=begin
+	Default values:
+		name : string
+		masculino : boolean
+		controller : string
+		fields : array, [[key, name]]
+=end
+    set_defaults config
+
+    render :partial => 'admin_template/index_nested', :locals => {:config => config}
+  end
+
   def at_new(config = {})
 =begin
 	Default values:
