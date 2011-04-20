@@ -29,6 +29,9 @@
 										:method => "delete",
 										:class => "button", :confirm => "¿Estás seguro de querer eliminar?" %>
       </div>
+			<% if config.has_key?(:extra_after) %>
+				<%= config[:extra_after] %>
+			<% end %>
     </div>
   </div>
 </div>
