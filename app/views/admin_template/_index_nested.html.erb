@@ -21,6 +21,7 @@
 
 		<ul data-lvl="0">
 		<% nested_set_options(cfg[:model]) do |i| %>
+			<% i = i[0] if i.class == Array %>
 			<%= raw '<ul>' if i.level > cnt %>
 			<%= raw ('</ul>' * (cnt - i.level)) if i.level < cnt %>
 				<li>
