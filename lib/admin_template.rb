@@ -108,7 +108,7 @@ module AdminTemplateHelpers
 '
       config[:fields].each do |f|
         str += "\t" + '<td>'
-        str += i[f[0]].to_s
+        str += i.send(f[0]).to_s
         str += '</td>' + "\n"
       end
       if(config[:show_links] or config.has_key?(:actions))
