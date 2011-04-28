@@ -27,7 +27,7 @@
 				<li>
 					<% cfg[:fields].each do |f| %>
 						<%= '|' if f != cfg[:fields].first %>
-						<%= i[f[0]]%>
+						<%= i.send(f[0]) %>
 					<% end %>
 					| [
 					<a href="<%= url_for(:controller => config[:controller], :action => "edit", :id => i) %>">Editar</a> |
