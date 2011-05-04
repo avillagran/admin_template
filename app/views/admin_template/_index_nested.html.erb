@@ -16,15 +16,13 @@
     <div class="inner">
 		<%
 			cfg = config
-			cnt = 0
 		%>
 
-		<ul data-lvl="0">
+		<ul data-lvl="0" class="list">
 		<% nested_set_options(cfg[:model]) do |i| %>
 			<% i = i[0] if i.class == Array %>
-			<%= raw '<ul>' if i.level > cnt %>
-			<%= raw ('</ul>' * (cnt - i.level)) if i.level < cnt %>
 				<li>
+				<%= raw(" &nbsp;  &nbsp;  &nbsp;  &nbsp; ") * i.level%>
 					<% cfg[:fields].each do |f| %>
 						<%= '|' if f != cfg[:fields].first %>
 						<%= i[f[0]]%>
@@ -34,7 +32,6 @@
 					<a href="<%= url_for(:controller => config[:controller], :action => "destroy", :id => i) %>" data-confirm="¿Estás seguro?" data-method="delete" rel="nofollow">Eliminar</a>
 						]
 				</li>
-			<% cnt = i.level %>
 		<% end %>
 		</ul>
 
