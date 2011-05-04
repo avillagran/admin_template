@@ -122,7 +122,7 @@ module AdminTemplateHelpers
         else
           str += '<a href="' + url_for(:controller => config[:controller], :action => "show", :id => i) + '">Mostrar</a> | '
           str += '<a href="' + url_for(:controller => config[:controller], :action => "edit", :id => i) + '">Editar</a> | '
-          str += '<a href="' + url_for(:controller => config[:controller], :action => "destroy", :id => i) + '" data-confirm="¿Estás seguro?" data-method="delete" rel="nofollow">Eliminar</a>'
+          str += '<a href="' + url_for(:controller => config[:controller], :action => "destroy", :id => i) + '" data-confirm="¿Estás seguro?" data-method="delete" rel="nofollow" remote="true">Eliminar</a>'
         end
         str += '</td>'
       end
