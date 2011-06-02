@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module AdminTemplateHelpers
   @@default_name        = "Artículos"
   @@default_controller  = "articles"
