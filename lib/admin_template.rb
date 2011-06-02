@@ -145,6 +145,7 @@ module AdminTemplateHelpers
     config[:show_id] = false					                        unless config.has_key?(:show_id)
     config[:show_title] = true                                unless config.has_key?(:show_title)
     config[:extra_params] = nil                               unless config.has_key?(:extra_params)
+    config[:default_actions] = true                           unless config.has_key?(:default_actions)
 
     created_at_array = config[:created_at_array]
 
