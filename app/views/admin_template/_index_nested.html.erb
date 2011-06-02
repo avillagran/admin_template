@@ -28,8 +28,22 @@
 						<%= i.send(f[0]) %>
 					<% end %>
 					| [
+					<% if cfg[:actions] %>
+						<% cfg[:actions].each do |a| %>
+							<a href="#"
+								data-uniq="<%=config[:unique_id].to_s%>"
+								data-type="<%=i.class.to_s%>"
+								data-id="<%=i.to_param%>"
+								<%= (a.has_key?(:class) && !a[:class].blank? ? a[:class] : '') %>
+							>
+							<%= a[:label] %>
+							</a> |
+						<% end %>
+					<% end %>
+					<% if cfg[:default_actions] %>
 					<a href="<%= url_for(:controller => config[:controller], :action => "edit", :id => i) %>">Editar</a> |
 					<a href="<%= url_for(:controller => config[:controller], :action => "destroy", :id => i) %>" data-confirm="¿Estás seguro?" data-method="delete" rel="nofollow">Eliminar</a>
+					<% end %>
 						]
 				</li>
 		<% end %>
