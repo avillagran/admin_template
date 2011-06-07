@@ -1,7 +1,7 @@
 <div class="block notice">
-  <h3>Admin Template</h3>
+  <h3><%= yield(:sidebar_title).blank? ? "yield(:sidebar_title)" : yield(:sidebar_title) %></h3>
   <div class="content">
-    <p>Esto es un menú autogenerado por Admn Template, debes definir su ruta con config[:sidebar]</p>
+    <p><%= yield(:sidebar_content).blank? ? "yield(:sidebar_content)" : yield(:sidebar_content) %></p>
   </div>
 </div>
 <div class="block">
@@ -11,3 +11,4 @@
     <li><a href="#">Link 2</a></li>
   </ul>
 </div>
+
